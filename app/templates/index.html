@@ -5,8 +5,8 @@
     {% for post in posts %}
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.content }}</p>
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{ post.content | safe }}</p>  <!-- 使用 safe 过滤器渲染 HTML -->
                 <a href="{{ url_for('post', post_id=post.id) }}" class="btn btn-primary">Read More</a>
             </div>
         </div>

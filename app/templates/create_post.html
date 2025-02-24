@@ -10,10 +10,22 @@
         </div>
         <div class="form-group">
             {{ form.content.label(class="form-label") }}
-            {{ form.content(class="form-control") }}
+            {{ form.content(class="form-control", id="content") }}
         </div>
         <div class="form-group mt-3">
             {{ form.submit(class="btn btn-primary") }}
         </div>
     </form>
+
+    <!-- 使用国内 CDN 引入 TinyMCE -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/tinymce/6.7.0/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#content',  // 绑定到 content 文本框
+            plugins: 'advlist autolink lists link image charmap print preview anchor',
+            toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+            menubar: false,
+            height: 300,
+        });
+    </script>
 {% endblock %}
