@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>Author: {{ post.author.username }}</p>
+    {% if current_user == post.author %}
+        <a href="{{ url_for('delete_post', post_id=post.id) }}" class="btn btn-danger">Delete</a>
+    {% endif %}
+{% endblock %}
